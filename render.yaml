@@ -1,4 +1,5 @@
 services:
+  # Retain the existing demo service. Use the Docker service below for PPT conversion.
   - type: web
     name: smartx-content-studio-demo
     runtime: node
@@ -9,3 +10,15 @@ services:
     envVars:
       - key: NODE_VERSION
         value: 24
+  - type: web
+    name: smartx-solution-studio
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: STUDIO_ADMIN_EMAIL
+        sync: false
+      - key: STUDIO_ADMIN_PASSWORD
+        sync: false
+      - key: STUDIO_ENCRYPTION_KEY
+        generateValue: true

@@ -60,3 +60,9 @@ docker run -d --name smartx-studio -p 3000:3000 -v smartx-studio-data:/app/.data
 视觉参考 SmartX 官网的深海军蓝、亮蓝、浅蓝与紫色立体图形、浅色导航与简洁版式。官网首页图形本地副本位于 `public/assets/smartx-brand.png`，来源为 https://cdn.smartx.com/inc/images/home/hero_smartx_sunmao_logo.png 。设备图标是为本 Demo 绘制的统一风格 SVG，**不是公司内部正式素材**；尚未导入公司原始图标或实际 PPT 母版。
 
 第三版 API 测试覆盖拓扑持久化、跨租户隔离、悬空连线、重复 ID、非法类型和坐标的拒绝。浏览器验证覆盖设备添加与拖入、节点移动、连线属性、删除连线关联清理、撤销、保存刷新以及带内嵌图片的 HTML 导出。
+
+## 第四版：真实公司模板与三种导出
+
+两份内部主打 PPT 作为正式模板（30 页虚拟化、171 页超融合，含隐藏页）。原文件和 201 页预览只存在租户私有 `.data`，不会推送到代码仓库。支持导入原始 PPTX、使用原始页面新建与生成、套用版式、修改原始文本、更新渲染预览，并基于同一源模板导出 PDF、HTML 和 PPTX。
+
+新增 Python/LibreOffice 转换组件与 Docker 服务配置；旧 Node Demo 仍保留。线上专用账号、模板导入、OAuth、持久化与字体说明见 [DEPLOYMENT.md](DEPLOYMENT.md)。Drive 文件夹链接已作为预设目标，真实授权及公司同步未完成；自动定时同步尚未实现。
